@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "externals": "rimraf dist && webpack --config ./build/webpack.externals.config.js --progress --profile",
-    "test": "rimraf dist && webpack --config ./build/webpack.test.config.js --progress --profile",
-    "providePlugin": "rimraf dist && webpack --config ./build/webpack.ProvidePlugin.config.js --progress --profile"
+    "providePlugin": "rimraf dist && webpack --config ./build/webpack.ProvidePlugin.config.js --progress --profile",
+    "requireEnsure": "rimraf dist && webpack --config ./build/webpack.requireEnsure.config.js --progress --profile"
   },
   "author": "",
   "license": "ISC",
