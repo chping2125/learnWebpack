@@ -13,6 +13,11 @@ module.exports = {
     filename: '[name].[chunkhash].js',
     libraryTarget: 'umd'
   },
+  resolve: {
+    alias: {
+      utilsTest: path.resolve(__dirname, '../src/ProvidePlugin')
+    }
+  },
   module: {
     rules: [
       {
