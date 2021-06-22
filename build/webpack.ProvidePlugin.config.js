@@ -15,7 +15,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      utilsTest: path.resolve(__dirname, '../src/ProvidePlugin')
+      utilsTest: path.resolve(__dirname, '../src/ProvidePlugin/utilsTest')
     }
   },
   module: {

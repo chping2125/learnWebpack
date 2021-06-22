@@ -3,4 +3,4 @@ import file from './business'; // business 没有特殊含义，就是模拟业�
 
 console.log('入口文件');
 file();
-// file2();
+file2();

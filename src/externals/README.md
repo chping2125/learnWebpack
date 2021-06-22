@@ -149,6 +149,11 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 ## 彩蛋
 在测试打包过程中，发现了一个新问题，在 1 中 “模块处理地方多了对 moment 的引用” 多了的引用时什么条件放进去的呢？
 
-最初认为是在 webpack 中配置的 externals 项就会加入引用，但是我在刚开始打包过程中，当发现代码中忘记添加 ‘import moment from 'moment';’引用时（即没有显示引用时），不会添加 moment 的引用，反之则有，就怀疑 webpack 中 externals 配置项并不是导致 “模块处理地方多了对 moment 的引用” 的唯一条件。
+最初认为是在 webpack 中配置的 externals 项就会加入引用，但是我在刚开始打包过程中，当发现代码中忘记添加 ‘import moment from 'moment';’引用时（即没有显式引用时），不会添加 moment 的引用(此时，externals 相当于没有生效)，反之则有，就怀疑 webpack 中 externals 配置项并不是导致 “模块处理地方多了对 moment 的引用” 的唯一条件。
 
-于是创建了 `business.js`, 然后经过测试发现，确实是这样（这种东西感觉应该去看源码，因为还没有看过 webpack 的源码，目前只能这样测试，但结论不一定完全正确）。
+于是创建了 `business2.js`, 然后经过测试发现，确实是这样（这种东西感觉应该去看源码，因为还没有看过 webpack 的源码，目前只能这样测试，但结论不一定完全正确）。
+
+结论：
+  1. 在 webpack 中配置的 externals 项，并显式引用依赖，才会触发该项配置。
+
+重新思考：如果没有显式引用依赖，webpack 自然不会打包依赖。都没有引用，怎么可能会打包（傻）。

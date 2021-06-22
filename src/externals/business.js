@@ -1,4 +1,4 @@
-import moment from 'moment';
+// import moment from 'moment';
 
 export default function fileJS() {
   console.log('我是 externals 测试:', moment());
